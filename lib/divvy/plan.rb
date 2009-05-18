@@ -8,6 +8,7 @@ module Divvy
       @packages = {}
       @provisions = {}
       @servers = Hash.new{|hash, key| hash[key] = Array.new;}
+      @servers = []
     end
 
     attr_reader :packages, :provisions
@@ -22,8 +23,8 @@ module Divvy
       @provisions[provision.name] = provision
     end
     
-    def add_server(provision, host)
-      @servers[host] << provision
+    def add_server(server)
+      @servers << server
     end
     
     def go

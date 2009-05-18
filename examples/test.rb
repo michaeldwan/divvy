@@ -1,5 +1,9 @@
 package :mysql do
   requires :foo
+  
+  # verify do
+  #   
+  # end
 end
 
 package :foo do
@@ -7,13 +11,10 @@ package :foo do
 end
 
 provision :web do
-  requires :foo
   requires :mysql
 end
 
 
 deploy do
-  server :app, 'app1.example.com'
-  server :app, 'app2.example.com'
-  server :web, 'web.example.com'
+  server :web, '67.23.25.222', :user => 'root', :password => 'web01lEXKMd'
 end
