@@ -1,12 +1,13 @@
 module Divvy
-  module Server
-    
-    def server()
-      
+  class Server
+
+    def initialize(provision, host, options = {})
+      @provision = provision
+      @host = host
+      @options = options
     end
-    
-    class Server
-      
-    end
+
+    attr_reader :provision, :host, :options
+        
   end
 end
