@@ -1,5 +1,4 @@
 require 'rubygems'
-# require 'activesupport'
 
 Dir["#{File.dirname(__FILE__)}/divvy/*.rb"].each { |f| require f}
 

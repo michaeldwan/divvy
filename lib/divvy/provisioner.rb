@@ -9,6 +9,7 @@ module Divvy
     attr_reader :target_package, :server
     
     def run
+      print_package(target_package)
       install_plan = normalize(target_package)
       puts "Normalized install order: #{install_plan.map { |package| package.name }.join(', ')}"
       install_plan.each do |package|
@@ -22,10 +23,17 @@ module Divvy
         packages = []
         package.dependencies.each do |dependent|
           packages << normalize(dependent)
-          packages << package
+          # packages << package
         end
         packages << package
         packages.flatten.uniq
+      end
+      
+      def print_package(package, depth = 1)
+        puts "#{" " * depth}#{package.name}"
+        package.dependencies.each do |dependent|
+          print_package(dependent, depth + 1)
+        end
       end
   end
 end

@@ -1,14 +1,60 @@
 #!/usr/bin/env ruby
 
 require "#{File.dirname(__FILE__)}/../lib/divvy"
+require 'optparse'
+require 'ostruct'
 
-file = File.expand_path(ARGV[0])
+OPTIONS = {}
+
+options = OpenStruct.new
+options.verbose = false
+options.test = false
+
+parser = OptionParser.new do |opts|
+  opts.banner = <<BANNER
+Divvy
+=====
+
+Divvy is a software provisioning tool you canuse to build remote servers with. 
+
+Usage
+=====
+
+$> #{File.basename($0)} [options]
+
+Options are:
+BANNER
+  opts.separator ""
+  
+  opts.on("-s", "--script=PATH", "The divvy script to run") do |script|
+    options.script = script
+  end
+
+  opts.on("-t", "--[no-]test", "Process but do not perform actions") do |t|
+    options.test = t
+  end
+  opts.on("-v", "--[no-]verbose", "Run verbosely") do |v|
+    options.verbose = v
+  end
+
+  opts.on("-h", "--help", "Show this help message.") { puts opts; exit }
+  opts.parse!(ARGV)
+  
+  unless options.script
+    puts "script is required"
+    puts opts
+    exit
+  end
+  
+end
+
+Divvy::OPTIONS = options
 
 class Runner
   def self.divvy(script, filename = '__SCRIPT__')
     thingy = new
     thingy.instance_eval script, filename
-  end      
+  end
 end
 
-Runner.divvy(File.read(file), file)
+Runner.divvy(File.read(Divvy::OPTIONS.script), Divvy::OPTIONS.script)

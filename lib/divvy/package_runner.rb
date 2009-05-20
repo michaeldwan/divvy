@@ -22,7 +22,7 @@ module Divvy
           process_verifications(true)
           puts " --> #{package.name} already installed package: #{server.host}"
           return
-        rescue Divvy::VerifyFailed => e
+        rescue Divvy::VerificationFailed => e
           # Yaay package not installed yet
         end
       end
