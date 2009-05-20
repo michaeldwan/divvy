@@ -4,4 +4,11 @@ require "#{File.dirname(__FILE__)}/../lib/divvy"
 
 file = File.expand_path(ARGV[0])
 
-Divvy::Script.divvy(File.read(file), file)
+class Runner
+  def self.divvy(script, filename = '__SCRIPT__')
+    thingy = new
+    thingy.instance_eval script, filename
+  end      
+end
+
+Runner.divvy(File.read(file), file)
