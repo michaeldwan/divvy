@@ -9,12 +9,14 @@ module Divvy
     attr_reader :target_package, :server
     
     def run
+      start_time = Time.now
       print_package(target_package)
       install_plan = normalize(target_package)
       puts "Normalized install order: #{install_plan.map { |package| package.name }.join(', ')}"
       install_plan.each do |package|
         PackageRunner.new(server, package).process
       end
+      puts "Took #{Time.now - start_time} seconds"
     end
     
     private
