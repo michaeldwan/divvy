@@ -1,7 +1,7 @@
 module Divvy
   module Plugins
     module RubyGems
-      def ruby_gems(gem_name, options = {})
+      def ruby_gem(gem_name, options = {})
         options = {
           :no_doc => true,
         }.merge(options)
