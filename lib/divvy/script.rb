@@ -4,7 +4,7 @@ module Divvy
     
     def package(name, options = {}, &block)
       package = Package.new(name, options, &block)
-      raise 'Duplicate package name' if PACKAGES.key?(package.name)
+      raise "Duplicate package name: #{package.name}" if PACKAGES.key?(package.name)
       PACKAGES[package.name] = package
     end
 

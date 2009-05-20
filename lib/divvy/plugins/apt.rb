@@ -7,9 +7,10 @@ module Divvy
         options = { :dependencies_only => false }
         options.update(packages.pop) if packages.last.is_a?(Hash)
         
-        command = "DEBCONF_TERSE='yes' DEBIAN_PRIORITY='critical' DEBIAN_FRONTEND=noninteractive apt-get -qyu"
-        command << options[:dependencies_only] ? 'build-dep' : 'install'
-        command << apt_packages.join(' ')
+        command = [ "DEBCONF_TERSE='yes' DEBIAN_PRIORITY='critical' DEBIAN_FRONTEND=noninteractive" ]
+        command << 'apt-get -qyu'
+        command << (options[:dependencies_only] ? 'build-dep' : 'install')
+        command << packages
         
         run(command.join(' '))
       end      
@@ -17,4 +18,4 @@ module Divvy
   end
 end
 
-Divvy::Script.register_plugin(Divvy::Plugins::Apt)
+register_plugin(Divvy::Plugins::Apt)

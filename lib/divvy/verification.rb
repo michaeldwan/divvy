@@ -15,14 +15,16 @@ module Divvy
     
     def verify(server)
       @commands.each do |command|
-        unless server.remote_command(command)
-          raise Divvy::VerifyFailed.new(@package, description)
+        begin
+          server.remote_command(command)
+        rescue Divvy::NonZeroExitCode => ex  
+          raise Divvy::VerificationFailed.new(@package, description)
         end
       end
     end
   end
   
-  class VerifyFailed < Exception #:nodoc:
+  class VerificationFailed < Exception #:nodoc:
     attr_accessor :package, :description
     
     def initialize(package, description)

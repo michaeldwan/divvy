@@ -11,6 +11,13 @@ module Divvy
     attr_reader :host, :options
     
     def remote_command(command, options = {})
+      options = {
+        :verbose => Divvy::OPTIONS.verbose, 
+        :raise_on_exit_code => true,
+        :raise_errors => true
+      }.merge(options)
+      puts command if options[:verbose]
+      response_data = ''
       begin
         Net::SSH.start(host, self.options[:user], :password => self.options[:password]) do |ssh|
           ssh.open_channel do |channel|
@@ -18,7 +25,9 @@ module Divvy
               raise "FAILED: couldn't execute command (ssh.channel.exec failure)" unless success
 
               channel.on_data do |ch, data|  # stdout
-                print data
+                print data if options[:verbose]
+                STDOUT.flush
+                response_data << data
               end
 
               channel.on_extended_data do |ch, type, data|
@@ -28,7 +37,7 @@ module Divvy
 
               channel.on_request("exit-status") do |ch, data|
                 exit_code = data.read_long
-                raise "ERROR: exit code #{exit_code}" if exit_code > 0
+                raise NonZeroExitCode.new(command, exit_code) if exit_code > 0 && options[:raise_on_exit_code]
               end
 
               channel.on_request("exit-signal") do |ch, data|
@@ -37,12 +46,12 @@ module Divvy
             end
           end
           ssh.loop
-        end      
+        end
       rescue Exception => err
         return false unless options[:raise_errors]
         raise
       end
-      true
+      response_data
     end
 
     def scp(source, target, options = {})
@@ -52,5 +61,15 @@ module Divvy
         end
       end
     end
+  end
+
+  class NonZeroExitCode < Exception
+    def initialize(command, exit_code)
+      super("Non-zero exit code: #{exit_code} for #{command}")
+      @command = command
+      @exit_code = exit_code
+    end
+    
+    attr_accessor :command, :exit_code
   end
 end

@@ -1,6 +1,5 @@
 module Divvy
   module Verifiers
-
     # Checks to make sure <tt>path</tt> is a file on the remote server.
     def has_file(path)
       @commands << "test -f #{path}"
