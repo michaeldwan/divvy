@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
      "VERSION",
      "bin/divvy",
      "divvy.gemspec",
+     "examples/test.rb",
      "lib/divvy.rb",
      "lib/divvy/package.rb",
      "lib/divvy/package_runner.rb",
@@ -52,7 +53,8 @@ Gem::Specification.new do |s|
      "examples/packages/ruby/ruby.rb",
      "examples/packages/ruby/ruby_gems.rb",
      "examples/packages/scm/git.rb",
-     "examples/packages/utilities/screen.rb"
+     "examples/packages/utilities/screen.rb",
+     "examples/test.rb"
   ]
 
   if s.respond_to? :specification_version then
