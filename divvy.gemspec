@@ -15,9 +15,12 @@ Gem::Specification.new do |s|
      "README.rdoc"
   ]
   s.files = [
-    "VERSION",
+    "LICENSE",
+     "README.rdoc",
+     "Rakefile",
+     "VERSION",
      "bin/divvy",
-     "examples/test.rb",
+     "divvy.gemspec",
      "lib/divvy.rb",
      "lib/divvy/package.rb",
      "lib/divvy/package_runner.rb",
@@ -29,7 +32,9 @@ Gem::Specification.new do |s|
      "lib/divvy/script.rb",
      "lib/divvy/server.rb",
      "lib/divvy/verification.rb",
-     "lib/divvy/verifiers.rb"
+     "lib/divvy/verifiers.rb",
+     "test/divvy_test.rb",
+     "test/test_helper.rb"
   ]
   s.has_rdoc = true
   s.homepage = %q{http://github.com/mdwan/divvy}
@@ -47,8 +52,7 @@ Gem::Specification.new do |s|
      "examples/packages/ruby/ruby.rb",
      "examples/packages/ruby/ruby_gems.rb",
      "examples/packages/scm/git.rb",
-     "examples/packages/utilities/screen.rb",
-     "examples/test.rb"
+     "examples/packages/utilities/screen.rb"
   ]
 
   if s.respond_to? :specification_version then
