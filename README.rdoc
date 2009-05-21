@@ -1,0 +1,11 @@
+= divvy
+
+Divvy is an easy to configure, easy to extend server provisioning framework written in Ruby.
+
+== Credits
+
+Many of Divvy's concepts came from the crafterm-sprinkle gem.
+
+== Copyright
+
+Copyright (c) 2009 Michael Dwan. See LICENSE for details.
