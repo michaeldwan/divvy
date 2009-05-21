@@ -10,6 +10,12 @@ module Divvy
         run("chmod #{mode} #{dir}") unless mode.nil?
       end
       
+      def push_text(path, text)
+        run("[ -f #{path} ] || touch #{path}")
+        run("echo '#{text}' | tee -a #{path}")
+        # "echo '#{text}' |#{'sudo' if option?(:sudo)} tee -a #{path}"
+      end
+      
     end
   end
 end
