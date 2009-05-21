@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{divvy}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Michael Dwan"]
@@ -29,7 +29,6 @@ Gem::Specification.new do |s|
      "examples/packages/ruby/ruby_gems.rb",
      "examples/packages/scm/git.rb",
      "examples/packages/utilities/screen.rb",
-     "examples/test.rb",
      "lib/divvy.rb",
      "lib/divvy/package.rb",
      "lib/divvy/package_runner.rb",
@@ -50,7 +49,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.2}
-  s.summary = %q{Divvy is an easy to configure, easy to extend server provisioning framework written in Ruby.}
+  s.summary = %q{TODO}
   s.test_files = [
     "test/divvy_test.rb",
      "test/test_helper.rb",
@@ -61,8 +60,7 @@ Gem::Specification.new do |s|
      "examples/packages/ruby/ruby.rb",
      "examples/packages/ruby/ruby_gems.rb",
      "examples/packages/scm/git.rb",
-     "examples/packages/utilities/screen.rb",
-     "examples/test.rb"
+     "examples/packages/utilities/screen.rb"
   ]
 
   if s.respond_to? :specification_version then
