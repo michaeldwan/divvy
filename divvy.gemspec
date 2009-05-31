@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Michael Dwan"]
-  s.date = %q{2009-05-20}
+  s.date = %q{2009-05-31}
   s.default_executable = %q{divvy}
   s.email = %q{mpdwan@gmail.com}
   s.executables = ["divvy"]
@@ -37,7 +37,6 @@ Gem::Specification.new do |s|
      "lib/divvy/plugins/gem.rb",
      "lib/divvy/plugins/source.rb",
      "lib/divvy/provisioner.rb",
-     "lib/divvy/script.rb",
      "lib/divvy/server.rb",
      "lib/divvy/verification.rb",
      "lib/divvy/verifiers.rb",
@@ -49,9 +48,10 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.2}
-  s.summary = %q{TODO}
+  s.summary = %q{Divvy is an easy to configure, easy to extend server provisioning framework written in Ruby.}
   s.test_files = [
     "test/divvy_test.rb",
+     "test/package_test.rb",
      "test/test_helper.rb",
      "examples/packages/build_essential.rb",
      "examples/packages/databases/mysql.rb",

@@ -1,7 +1,7 @@
 module Divvy
   class Provisioner
     def initialize(host, target_package, server_options)
-      @target_package = Divvy::Script::PACKAGES[target_package]
+      @target_package = Divvy.packages[target_package]
       raise "Package #{target_package} not found!" unless @target_package
       @server = Server.new(host, server_options)
     end

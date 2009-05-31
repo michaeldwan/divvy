@@ -2,7 +2,8 @@ module Divvy
   class Package
     
     def initialize(name, options = {}, &block)
-      @name = name
+      # raise ArgumentError.new('Name is required') unless name
+      @name = name.to_sym
       @options = options
       @dependencies = []
       @verifications = []
@@ -17,7 +18,8 @@ module Divvy
     end
     
     def dependencies
-      @dependencies.map { |key| Divvy::Script.get_package(key) }        
+      @dependencies.each { |package| raise "Package #{package} not found!" unless Divvy.packages.key?(package) }
+      @dependencies.map { |key| Divvy.packages[key] }
     end
 
     def apply(&block)

@@ -18,4 +18,4 @@ module Divvy
   end
 end
 
-register_plugin(Divvy::Plugins::RubyGems)
+Divvy.register_plugin(Divvy::Plugins::RubyGems)

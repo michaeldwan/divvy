@@ -1,4 +1,4 @@
-package :apt_update do
+Divvy.package :apt_update do
   apply do
     run('aptitude -y update')
     run('aptitude -y safe-upgrade')
@@ -6,7 +6,7 @@ package :apt_update do
   end
 end
 
-package :build_essential do
+Divvy.package :build_essential do
   requires :apt_update
   apply do
     apt %w(build-essential libssl-dev libreadline5-dev zlib1g-dev)

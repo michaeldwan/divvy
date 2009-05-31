@@ -1,12 +1,11 @@
-package :ruby do
+Divvy.package :ruby do
   requires :build_essential
   
-  verify do
-    has_file '/usr/bin/ruby1.8'
-    has_file '/usr/bin/ri1.8'
-    has_file '/usr/bin/rdoc1.8'
-    has_file '/usr/bin/irb1.8'    
-  end
+  verify { has_file '/usr/bin/ruby1.8' }
+  verify { has_file '/usr/bin/ri1.8' }
+  verify { has_file '/usr/bin/rdoc1.8' }
+  verify { has_file '/usr/bin/irb1.8' }
+
   
   apply do
     apt %q(ruby1.8-dev ruby1.8 ri1.8 rdoc1.8 irb1.8 libreadline-ruby1.8 libruby1.8 libopenssl-ruby)

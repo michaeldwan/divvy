@@ -1,4 +1,4 @@
-= divvy
+= Divvy
 
 Divvy is an easy to configure, easy to extend server provisioning framework written in Ruby.
 
@@ -6,9 +6,21 @@ I created this for use on a specific project and have not yet gotten around to d
 
 Stay tuned.
 
+== Principals
+
+Divvy was created to 
+
+ - There is a difference between preparing a server and managing instances.
+ - Provisioning a server is more than just installing required software.
+ - Capistrano and Vlad are great for deployment, but are overkill for busting out SSH commands.
+ - Specific scripts should extend Divvy as necessary.
+
 == Credits
 
-Many of Divvy's concepts came from the crafterm-sprinkle gem.
+Divvy was created and currently maintained by Michael Dwan.
+
+Inspiration came from Marcus Crafter's Sprinkle, Capistrano, Evan Petrie from Metromix, and 
+several other scripts and frameworks I have attempted to use over the years.
 
 == Copyright
 

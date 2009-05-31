@@ -1,4 +1,4 @@
-package :git do
+Divvy.package :git do
   requires :build_essential
   
   verify do

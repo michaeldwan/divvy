@@ -1,4 +1,4 @@
-package :screen do
+Divvy.package :screen do
   apply do
     apt 'screen'
   end

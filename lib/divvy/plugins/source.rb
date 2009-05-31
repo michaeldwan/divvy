@@ -29,11 +29,11 @@ module Divvy
           self.instance_eval(&block) unless block.nil?
           
           [:prepare, :download, :extract, :configure, :build, :install].each do |stage|
-            puts "before #{stage}" if Divvy::OPTIONS.verbose
+            puts "before #{stage}" if Divvy.verbose
             @befores[stage].call if @befores[stage]
-            puts "stage #{stage}" if Divvy::OPTIONS.verbose
+            puts "stage #{stage}" if Divvy.verbose
             @stages[stage].call if @stages[stage]
-            puts "after #{stage}" if Divvy::OPTIONS.verbose            
+            puts "after #{stage}" if Divvy.verbose            
             @afters[stage].call if @afters[stage]
           end
         end
@@ -137,4 +137,4 @@ module Divvy
   end
 end
 
-register_plugin(Divvy::Plugins::Source)
+Divvy.register_plugin(Divvy::Plugins::Source)

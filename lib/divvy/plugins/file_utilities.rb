@@ -20,4 +20,4 @@ module Divvy
   end
 end
 
-register_plugin(Divvy::Plugins::FileUtilities)
+Divvy.register_plugin(Divvy::Plugins::FileUtilities)

@@ -5,7 +5,7 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "divvy"
-    gem.summary = %Q{TODO}
+    gem.summary = %Q{Divvy is an easy to configure, easy to extend server provisioning framework written in Ruby.}
     gem.email = "mpdwan@gmail.com"
     gem.homepage = "http://github.com/mdwan/divvy"
     gem.authors = ["Michael Dwan"]

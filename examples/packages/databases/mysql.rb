@@ -1,4 +1,4 @@
-package :mysql do
+Divvy.package :mysql do
   verify do
     has_executable 'mysql'
   end
@@ -8,7 +8,7 @@ package :mysql do
   end
 end
 
-package :mysql_ruby_driver do
+Divvy.package :mysql_ruby_driver do
   requires :mysql, :ruby, :ruby_gems
   verify do
     ruby_can_load 'mysql'

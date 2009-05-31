@@ -12,7 +12,7 @@ module Divvy
     
     def remote_command(command, options = {})
       options = {
-        :verbose => Divvy::OPTIONS.verbose, 
+        :verbose => Divvy.verbose, 
         :raise_on_exit_code => true,
         :raise_errors => true
       }.merge(options)

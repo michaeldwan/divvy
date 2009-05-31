@@ -1,4 +1,4 @@
-package :ruby_gems do
+Divvy.package :ruby_gems do
   requires :build_essential, :ruby
 
   verify do

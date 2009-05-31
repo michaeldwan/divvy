@@ -1,4 +1,4 @@
-package :sqlite3 do
+Divvy.package :sqlite3 do
   verify do
     has_executable 'sqlite3'
   end
@@ -8,7 +8,7 @@ package :sqlite3 do
   end  
 end
 
-package :sqlite3_ruby do
+Divvy.package :sqlite3_ruby do
   requires :sqlite3
   
   verify do

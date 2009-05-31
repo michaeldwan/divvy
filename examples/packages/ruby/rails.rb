@@ -1,4 +1,4 @@
-package :rails do
+Divvy.package :rails do
   requires :ruby_gems
 
   verify do
