@@ -15,7 +15,8 @@ Gem::Specification.new do |s|
      "README.rdoc"
   ]
   s.files = [
-    "LICENSE",
+    ".gitignore",
+     "LICENSE",
      "README.rdoc",
      "Rakefile",
      "VERSION",
@@ -30,17 +31,20 @@ Gem::Specification.new do |s|
      "examples/packages/scm/git.rb",
      "examples/packages/utilities/screen.rb",
      "lib/divvy.rb",
+     "lib/divvy/duplicate_package_error.rb",
      "lib/divvy/package.rb",
      "lib/divvy/package_runner.rb",
      "lib/divvy/plugins/apt.rb",
      "lib/divvy/plugins/file_utilities.rb",
      "lib/divvy/plugins/gem.rb",
+     "lib/divvy/plugins/rails.rb",
      "lib/divvy/plugins/source.rb",
      "lib/divvy/provisioner.rb",
      "lib/divvy/server.rb",
      "lib/divvy/verification.rb",
      "lib/divvy/verifiers.rb",
      "test/divvy_test.rb",
+     "test/package_test.rb",
      "test/test_helper.rb"
   ]
   s.has_rdoc = true

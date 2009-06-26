@@ -19,7 +19,8 @@ module Divvy
       puts command if options[:verbose]
       response_data = ''
       begin
-        Net::SSH.start(host, self.options[:user], :password => self.options[:password]) do |ssh|
+        key_path = File.expand_path(self.options[:key]) if self.options[:key]
+        Net::SSH.start(host, self.options[:user], :password => self.options[:password], :keys => [key_path]) do |ssh|
           ssh.open_channel do |channel|
             channel.exec(command) do |ch, success|
               raise "FAILED: couldn't execute command (ssh.channel.exec failure)" unless success
@@ -55,7 +56,8 @@ module Divvy
     end
 
     def scp(source, target, options = {})
-      Net::SCP.start(host, self.options[:user], :password => self.options[:password]) do |scp|
+      key_path = File.expand_path(self.options[:key]) if self.options[:key]
+      Net::SCP.start(host, self.options[:user], :password => self.options[:password], :keys => [key_path]) do |scp|
         scp.upload! source, target do |ch, name, sent, total|
           puts "#{name}: #{sent}/#{total}"
         end
