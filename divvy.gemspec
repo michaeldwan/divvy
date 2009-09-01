@@ -5,12 +5,13 @@
 
 Gem::Specification.new do |s|
   s.name = %q{divvy}
-  s.version = "0.1.4"
+  s.version = "0.1.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Michael Dwan"]
   s.date = %q{2009-09-01}
   s.default_executable = %q{divvy}
+  s.description = %q{Divvy is an easy to configure, easy to extend server provisioning framework written in Ruby.}
   s.email = %q{mpdwan@gmail.com}
   s.executables = ["divvy"]
   s.extra_rdoc_files = [
@@ -51,7 +52,7 @@ Gem::Specification.new do |s|
      "test/package_test.rb",
      "test/test_helper.rb"
   ]
-  s.homepage = %q{http://github.com/mdwan/divvy}
+  s.homepage = %q{http://github.com/michaeldwan/divvy}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}
@@ -76,8 +77,11 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+      s.add_development_dependency(%q<thoughtbot-shoulda>, [">= 0"])
     else
+      s.add_dependency(%q<thoughtbot-shoulda>, [">= 0"])
     end
   else
+    s.add_dependency(%q<thoughtbot-shoulda>, [">= 0"])
   end
 end
