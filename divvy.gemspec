@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{divvy}
-  s.version = "0.1.3"
+  s.version = "0.1.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Michael Dwan"]
@@ -33,6 +33,7 @@ Gem::Specification.new do |s|
      "examples/packages/ruby/ruby_gems.rb",
      "examples/packages/scm/git.rb",
      "examples/packages/utilities/screen.rb",
+     "examples/test.rb",
      "lib/divvy.rb",
      "lib/divvy/duplicate_package_error.rb",
      "lib/divvy/package.rb",

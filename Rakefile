@@ -6,9 +6,11 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = "divvy"
     gem.summary = %Q{Divvy is an easy to configure, easy to extend server provisioning framework written in Ruby.}
+    gem.description = %Q{Divvy is an easy to configure, easy to extend server provisioning framework written in Ruby.}
     gem.email = "mpdwan@gmail.com"
-    gem.homepage = "http://github.com/mdwan/divvy"
+    gem.homepage = "http://github.com/michaeldwan/divvy"
     gem.authors = ["Michael Dwan"]
+    gem.add_development_dependency "thoughtbot-shoulda"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 
